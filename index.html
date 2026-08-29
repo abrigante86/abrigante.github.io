@@ -119,8 +119,8 @@
   @media(min-width:640px){h1.hero-name{font-size:3.6rem;}}
   .glitch-wrap{display:inline-block;position:relative;cursor:default;}
   .glitch-wrap::before,.glitch-wrap::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:0;}
-  .glitch-wrap:hover::before{opacity:0.8;color:#ff2b6d;transform:translate(2px,0);clip-path:inset(0 0 55% 0);animation:glitchTop .38s steps(2) infinite;}
-  .glitch-wrap:hover::after{opacity:0.8;color:#3EC1FF;transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:glitchBot .32s steps(2) infinite;}
+  .glitch-wrap:hover::before{opacity:0.85;color:#B6FFCF;transform:translate(2px,0);clip-path:inset(0 0 55% 0);animation:glitchTop .38s steps(2) infinite;}
+  .glitch-wrap:hover::after{opacity:0.85;color:#0A6B45;transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:glitchBot .32s steps(2) infinite;}
   @keyframes glitchTop{0%{transform:translate(1px,-1px);}50%{transform:translate(-2px,1px);}100%{transform:translate(1px,-1px);}}
   @keyframes glitchBot{0%{transform:translate(-1px,1px);}50%{transform:translate(2px,-1px);}100%{transform:translate(-1px,1px);}}
 
@@ -199,6 +199,50 @@
   .trace-path{stroke-dasharray:300;stroke-dashoffset:300;animation:traceIn 1.6s ease forwards;}
   @keyframes traceIn{to{stroke-dashoffset:0;}}
 
+  /* solder smoke + spark */
+  .solder-fx .smoke{fill:var(--accent2);opacity:0;transform-box:fill-box;transform-origin:center;
+    animation:smokeRise 2.4s ease-in infinite;filter:blur(1px);}
+  @keyframes smokeRise{
+    0%{transform:translateY(0) scale(0.5);opacity:0;}
+    15%{opacity:0.55;}
+    100%{transform:translateY(-22px) scale(1.6);opacity:0;}
+  }
+  .solder-fx .spark{stroke:var(--accent);stroke-width:1.6;opacity:0;transform-box:fill-box;transform-origin:center;
+    animation:sparkFlicker 1.8s ease-in-out infinite;}
+  @keyframes sparkFlicker{
+    0%,100%{opacity:0;transform:scale(0.7);}
+    8%{opacity:1;transform:scale(1.1);}
+    16%{opacity:0;transform:scale(0.9);}
+  }
+
+  /* quality checklist scanning pulse */
+  .checklist span{animation:checkPulse 3.2s ease-in-out infinite;}
+  .checklist span:nth-child(1){animation-delay:0s;}
+  .checklist span:nth-child(2){animation-delay:0.5s;}
+  .checklist span:nth-child(3){animation-delay:1s;}
+  .checklist span:nth-child(4){animation-delay:1.5s;}
+  @keyframes checkPulse{
+    0%,70%,100%{box-shadow:0 0 0 rgba(0,0,0,0);}
+    10%{box-shadow:0 0 14px -2px var(--accent);}
+  }
+
+  /* blueprint scan line */
+  .blueprint-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg, transparent, var(--accent2), transparent);
+    animation:blueprintScan 3.4s ease-in-out infinite;opacity:0.8;}
+  @keyframes blueprintScan{
+    0%{top:8%;opacity:0;}
+    10%{opacity:0.9;}
+    90%{opacity:0.9;}
+    100%{top:92%;opacity:0;}
+  }
+
+  /* second small meshing gear */
+  .gear-small{animation:gearspin 4s linear infinite reverse;}
+  .gear g, .gear-small g{stroke:var(--accent);}
+  #wave1{stroke:var(--accent);}
+  #electronics circle:not(.smoke){fill:var(--accent2);}
+  #procedures g{stroke:var(--accent2);}
+
   @media (prefers-reduced-motion: reduce){
     .reveal{transition:none;opacity:1;transform:none;}
     .gear{animation:none;}
@@ -254,9 +298,9 @@
       </div>
       <div class="term-card">
         <div class="term-head">
-          <span class="term-dot" style="background:#ff5f57;"></span>
-          <span class="term-dot" style="background:#febc2e;"></span>
-          <span class="term-dot" style="background:#28c840;"></span>
+          <span class="term-dot" style="background:#0A6B45;"></span>
+          <span class="term-dot" style="background:#39FF9C;"></span>
+          <span class="term-dot" style="background:#B6FFCF;"></span>
           <span class="font-mono" style="font-size:0.7rem;opacity:0.5;margin-left:0.4rem;">bench@anthony:~</span>
         </div>
         <div class="term-body" id="termBody"></div>
@@ -287,8 +331,8 @@
         <h2 class="section-title" id="precision-title">Precision Instrumentation &amp; Calibration</h2>
         <p class="tagline">Where I started my career — reading the signal correctly, every time.</p>
         <div class="chip-row">
-          <span class="chip" style="border-color:#3EC1FF77;color:#3EC1FF;">CORE SKILL</span>
-          <span class="chip" style="border-color:#3EC1FF77;color:#3EC1FF;">13+ YEARS</span>
+          <span class="chip" style="border-color:#34D39977;color:#34D399;">CORE SKILL</span>
+          <span class="chip" style="border-color:#34D39977;color:#34D399;">13+ YEARS</span>
         </div>
         <ul class="bullets">
           <li><span>▸</span><span>DMMs &amp; signal instrumentation</span></li>
@@ -314,8 +358,8 @@
         <h2 class="section-title" id="electronics-title">Electronics &amp; Soldering</h2>
         <p class="tagline">Component-level work — where the fix actually happens.</p>
         <div class="chip-row">
-          <span class="chip" style="border-color:#E8873C77;color:#E8873C;">IPC-A-610</span>
-          <span class="chip" style="border-color:#E8873C77;color:#E8873C;">CORE SKILL</span>
+          <span class="chip" style="border-color:#84CC1677;color:#84CC16;">IPC-A-610</span>
+          <span class="chip" style="border-color:#84CC1677;color:#84CC16;">CORE SKILL</span>
         </div>
         <ul class="bullets">
           <li><span>▸</span><span>SMT &amp; through-hole soldering</span></li>
@@ -328,6 +372,24 @@
         <svg width="100%" height="90" viewBox="0 0 260 70" aria-hidden="true">
           <path class="trace-path" d="M0 35 H60 L80 15 H140 L160 35 H260" fill="none" stroke-width="3" />
           <circle cx="60" cy="35" r="4" /><circle cx="140" cy="35" r="4" /><circle cx="200" cy="35" r="4" />
+          <g class="solder-fx" transform="translate(60,35)">
+            <circle class="smoke" cx="0" cy="0" r="3" style="animation-delay:0s;" />
+            <circle class="smoke" cx="1" cy="0" r="2.4" style="animation-delay:0.7s;" />
+            <line class="spark" x1="-6" y1="-4" x2="-10" y2="-9" style="animation-delay:0.2s;" />
+            <line class="spark" x1="6" y1="-4" x2="10" y2="-9" style="animation-delay:0.9s;" />
+          </g>
+          <g class="solder-fx" transform="translate(140,35)">
+            <circle class="smoke" cx="0" cy="0" r="3" style="animation-delay:0.4s;" />
+            <circle class="smoke" cx="-1" cy="0" r="2.2" style="animation-delay:1.1s;" />
+            <line class="spark" x1="-6" y1="-4" x2="-10" y2="-9" style="animation-delay:0.6s;" />
+            <line class="spark" x1="6" y1="-4" x2="10" y2="-9" style="animation-delay:1.4s;" />
+          </g>
+          <g class="solder-fx" transform="translate(200,35)">
+            <circle class="smoke" cx="0" cy="0" r="3" style="animation-delay:0.9s;" />
+            <circle class="smoke" cx="1" cy="0" r="2.4" style="animation-delay:1.6s;" />
+            <line class="spark" x1="-6" y1="-4" x2="-10" y2="-9" style="animation-delay:0.3s;" />
+            <line class="spark" x1="6" y1="-4" x2="10" y2="-9" style="animation-delay:1.1s;" />
+          </g>
         </svg>
       </div>
     </div>
@@ -373,7 +435,8 @@
           <li><span>▸</span><span>Workflow/throughput optimization</span></li>
         </ul>
       </div>
-      <div class="panel-card reveal" style="height:130px;position:relative;">
+      <div class="panel-card reveal" style="height:130px;position:relative;overflow:hidden;">
+        <div class="blueprint-scan" aria-hidden="true"></div>
         <svg width="100%" height="100%" viewBox="0 0 300 100" aria-hidden="true">
           <g stroke-width="1" opacity="0.7">
             <line x1="10" y1="20" x2="290" y2="20" /><line x1="10" y1="45" x2="200" y2="45" /><line x1="10" y1="70" x2="250" y2="70" />
@@ -423,13 +486,24 @@
         </ul>
       </div>
       <div class="panel-card reveal" style="display:flex;align-items:center;justify-content:center;">
-        <svg class="gear" width="80" height="80" viewBox="0 0 100 100" aria-hidden="true">
-          <g fill="none" stroke-width="6">
-            <circle cx="50" cy="50" r="30" />
-            <line x1="50" y1="20" x2="50" y2="8" /><line x1="71" y1="29" x2="80" y2="20" />
-            <line x1="80" y1="50" x2="92" y2="50" /><line x1="71" y1="71" x2="80" y2="80" />
-            <line x1="50" y1="80" x2="50" y2="92" /><line x1="29" y1="71" x2="20" y2="80" />
-            <line x1="20" y1="50" x2="8" y2="50" /><line x1="29" y1="29" x2="20" y2="20" />
+        <svg width="130" height="90" viewBox="0 0 160 100" aria-hidden="true">
+          <g class="gear" style="transform-box:fill-box;transform-origin:center;" transform="translate(0,0)">
+            <g fill="none" stroke-width="6" transform="translate(50,50)">
+              <circle cx="0" cy="0" r="30" />
+              <line x1="0" y1="-30" x2="0" y2="-42" /><line x1="21" y1="-21" x2="30" y2="-30" />
+              <line x1="30" y1="0" x2="42" y2="0" /><line x1="21" y1="21" x2="30" y2="30" />
+              <line x1="0" y1="30" x2="0" y2="42" /><line x1="-21" y1="21" x2="-30" y2="30" />
+              <line x1="-30" y1="0" x2="-42" y2="0" /><line x1="-21" y1="-21" x2="-30" y2="-30" />
+            </g>
+          </g>
+          <g class="gear-small" style="transform-box:fill-box;transform-origin:center;">
+            <g fill="none" stroke-width="5" transform="translate(112,66)">
+              <circle cx="0" cy="0" r="18" />
+              <line x1="0" y1="-18" x2="0" y2="-27" /><line x1="12.7" y1="-12.7" x2="19" y2="-19" />
+              <line x1="18" y1="0" x2="27" y2="0" /><line x1="12.7" y1="12.7" x2="19" y2="19" />
+              <line x1="0" y1="18" x2="0" y2="27" /><line x1="-12.7" y1="12.7" x2="-19" y2="19" />
+              <line x1="-18" y1="0" x2="-27" y2="0" /><line x1="-12.7" y1="-12.7" x2="-19" y2="-19" />
+            </g>
           </g>
         </svg>
       </div>
@@ -485,16 +559,17 @@
 (function(){
   var THEME = {
     crt:      { bg:"#04070A", accent:"#39FF9C", accent2:"#0FDC7A", text:"#DFFFEE", sub:"#5FAE85" },
-    lcd:      { bg:"#070604", accent:"#FFB020", accent2:"#FF7A18", text:"#FFE9C4", sub:"#B98A45" },
+    lcd:      { bg:"#050B07", accent:"#6FFFB0", accent2:"#39FF9C", text:"#E4FFF0", sub:"#5CBE8C" },
     hud:      { bg:"#040707", accent:"#39FF9C", accent2:"#20C997", text:"#E4FFF3", sub:"#5AA089" },
-    scope:    { bg:"#03060A", accent:"#3EC1FF", accent2:"#7FE0FF", text:"#DFF3FF", sub:"#5A8AA8" },
+    scope:    { bg:"#030A08", accent:"#34D399", accent2:"#6EE7B7", text:"#E2FFF2", sub:"#4FAE84" },
     terminal: { bg:"#020403", accent:"#39FF9C", accent2:"#B6FFCF", text:"#D7FFE6", sub:"#4A9470" },
-    copper:   { bg:"#070402", accent:"#E8873C", accent2:"#F2B25C", text:"#FFE9D4", sub:"#B4834E" },
-    blueprint:{ bg:"#04101E", accent:"#7FC7FF", accent2:"#FFFFFF", text:"#E6F3FF", sub:"#5D8BB3" },
-    servo:    { bg:"#080502", accent:"#FF9A3E", accent2:"#FFC97A", text:"#FFE7CE", sub:"#B0824C" },
-    badge:    { bg:"#0A0704", accent:"#E8C468", accent2:"#FFD98A", text:"#FFF3D6", sub:"#B79A5C" },
-    handshake:{ bg:"#020402", accent:"#39FF9C", accent2:"#3EC1FF", text:"#E4FFF0", sub:"#4A9470" }
+    copper:   { bg:"#040A05", accent:"#84CC16", accent2:"#BEF264", text:"#EFFFD6", sub:"#8FAE55" },
+    blueprint:{ bg:"#031A12", accent:"#6EE7B7", accent2:"#D1FAE5", text:"#E6FFF4", sub:"#4F9E7E" },
+    servo:    { bg:"#050A04", accent:"#4ADE80", accent2:"#A7F3D0", text:"#E7FFEF", sub:"#5EAE7E" },
+    badge:    { bg:"#060A05", accent:"#86EFAC", accent2:"#D9F99D", text:"#F0FFE9", sub:"#79B78C" },
+    handshake:{ bg:"#020402", accent:"#39FF9C", accent2:"#3EE6C4", text:"#E4FFF0", sub:"#4A9470" }
   };
+
 
   var sections = Array.prototype.slice.call(document.querySelectorAll('section.panel'));
   var navdots = document.getElementById('navdots');
@@ -546,10 +621,32 @@
   }
 
   (function(){
-    var pts = [];
-    for(var i=0;i<60;i++){ var y = 60 + Math.sin(i/2.3)*30 + Math.sin(i/1.4)*8; pts.push((i*6)+","+y); }
     var wave = document.getElementById('wave1');
-    if(wave) wave.setAttribute('points', pts.join(' '));
+    if(!wave) return;
+    var rafId = null, t = 0;
+    function frame(){
+      var pts = [];
+      for(var i=0;i<60;i++){
+        var y = 60 + Math.sin(i/2.3 - t*2.2)*32 + Math.sin(i/1.1 - t*3.4)*10;
+        pts.push((i*6)+","+y);
+      }
+      wave.setAttribute('points', pts.join(' '));
+      t += 0.028;
+      rafId = requestAnimationFrame(frame);
+    }
+    if(!reduceMotion){
+      var waveObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ if(!rafId) frame(); }
+          else { if(rafId){ cancelAnimationFrame(rafId); rafId = null; } }
+        });
+      }, {threshold:0.05});
+      waveObserver.observe(document.getElementById('precision'));
+    } else {
+      var pts = [];
+      for(var i=0;i<60;i++){ var y = 60 + Math.sin(i/2.3)*30 + Math.sin(i/1.4)*8; pts.push((i*6)+","+y); }
+      wave.setAttribute('points', pts.join(' '));
+    }
   })();
 
   var revealObserver = new IntersectionObserver(function(entries){
