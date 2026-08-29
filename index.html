@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anthony Brigante — Electronics & Mechatronics Test Technician</title>
+<meta name="description" content="Anthony Brigante — 13+ years of experience in precision instrumentation, calibration, electronics, soldering, quality process improvement, and mechatronics test stand development. IPC-A-610 certified." />
+<meta name="keywords" content="Anthony Brigante, electronics technician, mechatronics technician, test technician resume, calibration technician, IPC-A-610, precision instrumentation, PCB soldering, automation, Clearwater FL, Swampscott MA" />
+<meta name="author" content="Anthony Brigante" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://anthonybrigante.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Anthony Brigante — Electronics & Mechatronics Test Technician" />
+<meta property="og:description" content="13+ years of experience in precision instrumentation, calibration, electronics, soldering, quality process improvement, and mechatronics test stand development." />
+<meta property="og:url" content="https://anthonybrigante.com/" />
+<meta property="og:image" content="https://anthonybrigante.com/og-image.png" />
+<meta property="og:locale" content="en_US" />
+<meta property="profile:first_name" content="Anthony" />
+<meta property="profile:last_name" content="Brigante" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Anthony Brigante — Electronics & Mechatronics Test Technician" />
+<meta name="twitter:description" content="13+ years of experience in precision instrumentation, calibration, electronics, soldering, quality process improvement, and mechatronics." />
+<meta name="twitter:image" content="https://anthonybrigante.com/og-image.png" />
+
+<!-- Favicon (replace with real files before deploying) -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anthony Brigante",
+  "jobTitle": "Senior Mechatronics Technician",
+  "url": "https://anthonybrigante.com/",
+  "email": "mailto:Abrigante86@gmail.com",
+  "telephone": "+1-813-370-6143",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Swampscott",
+    "addressRegion": "MA",
+    "postalCode": "01907",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Harmonic Drive LLC"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Saint Petersburg College"
+  },
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "name": "IPC-A-610 Certified" },
+    { "@type": "EducationalOccupationalCredential", "name": "Lean Six Sigma Yellow Belt" },
+    { "@type": "EducationalOccupationalCredential", "name": "Google Data Analytics" }
+  ],
+  "knowsAbout": [
+    "Precision Instrumentation and Calibration",
+    "Electronics and Soldering",
+    "Quality and Process Improvement",
+    "Manufacturing Procedures",
+    "Software and Scripting",
+    "Mechatronics and Automation"
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --dur:0.9s;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:#04070A;overflow-x:hidden;}
+  .font-mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  ::selection{background:#39FF9C;color:#000;}
+
+  /* signal trace */
+  #trace{position:fixed;left:0;top:0;height:100%;width:56px;z-index:40;pointer-events:none;display:none;}
+  @media(min-width:640px){#trace{display:flex;justify-content:center;}}
+  #trace .line{position:absolute;inset:0;width:1px;left:50%;background:rgba(255,255,255,0.08);}
+  #trace .dot{position:absolute;left:50%;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);transition:background .6s ease, box-shadow .6s ease;}
+
+  /* nav dots */
+  #navdots{position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:12px;}
+  @media(min-width:768px){#navdots{display:flex;}}
+  #navdots .nd{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.15);transition:all .5s ease;}
+  #navdots .nd.active{transform:scale(1.4);}
+
+  /* scanlines */
+  #scanlines{position:fixed;inset:0;z-index:30;pointer-events:none;opacity:0.035;mix-blend-mode:overlay;
+    background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 3px);}
+
+  section.panel{position:relative;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:6rem 1.5rem;overflow:hidden;transition:background var(--dur) ease;}
+  @media(min-width:768px){section.panel{padding:6rem 6rem;}}
+  .label-tag{position:absolute;top:1.5rem;right:1.5rem;font-size:10px;letter-spacing:0.3em;opacity:0.6;}
+  @media(min-width:768px){.label-tag{top:2.5rem;right:4rem;}}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s cubic-bezier(.16,.84,.44,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  h1.hero-name{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:3rem;line-height:1.05;margin:0;}
+  @media(min-width:768px){h1.hero-name{font-size:5rem;}}
+  h2.section-title{font-size:1.9rem;font-weight:700;margin:0 0 1rem 0;}
+  @media(min-width:768px){h2.section-title{font-size:3rem;}}
+
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:1rem;}
+  .tagline{font-size:1rem;opacity:0.8;max-width:640px;margin:0 0 2rem 0;}
+  @media(min-width:768px){.tagline{font-size:1.1rem;}}
+
+  ul.bullets{list-style:none;margin:2rem 0 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:0.7rem 2rem;}
+  @media(min-width:640px){ul.bullets{grid-template-columns:1fr 1fr;}}
+  ul.bullets li{display:flex;align-items:flex-start;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem;}
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 1.5rem;max-width:900px;}
+  @media(min-width:768px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-value{font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:700;font-variant-numeric:tabular-nums;}
+  @media(min-width:768px){.stat-value{font-size:3.5rem;}}
+  .stat-label{margin-top:0.4rem;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7;}
+
+  .checklist{display:flex;gap:0.5rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;}
+  .checklist span{padding:0.5rem 0.8rem;border:1px solid;border-radius:4px;}
+
+  .timeline-row{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid;}
+  .timeline-period{font-family:'JetBrains Mono',monospace;font-size:0.75rem;width:8rem;flex-shrink:0;padding-top:0.15rem;opacity:0.6;}
+  .timeline-role{font-weight:600;}
+  .timeline-org{font-size:0.85rem;opacity:0.7;}
+
+  .badge-circle{aspect-ratio:1/1;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.85rem;}
+
+  .contact-link{display:block;width:fit-content;font-family:'JetBrains Mono',monospace;font-size:1rem;margin-bottom:0.5rem;text-decoration:none;}
+  .contact-link:hover{text-decoration:underline;}
+
+  .blink{animation:blink 1.4s step-start infinite;}
+  @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes gearspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .gear{animation:gearspin 6s linear infinite;}
+  .trace-path{stroke-dasharray:300;stroke-dashoffset:300;animation:traceIn 1.6s ease forwards;}
+  @keyframes traceIn{to{stroke-dashoffset:0;}}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none;opacity:1;transform:none;}
+    .gear{animation:none;}
+    .blink{animation:none;}
+    .trace-path{animation:none;stroke-dashoffset:0;}
+  }
+
+  footer.site-footer{padding:2rem 1.5rem;text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.7rem;opacity:0.4;}
+</style>
+</head>
+<body>
+
+<div id="scanlines" aria-hidden="true"></div>
+<div id="trace" aria-hidden="true"><div class="line"></div><div class="dot"></div></div>
+<nav id="navdots" aria-label="Section indicator"></nav>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="panel" id="hero" data-theme="crt" aria-label="Introduction">
+    <span class="label-tag font-mono">SYS.BOOT</span>
+    <div style="max-width:48rem;">
+      <p class="tag font-mono" id="bootline">&gt;</p>
+      <h1 class="hero-name">ANTHONY<br />BRIGANTE</h1>
+      <p class="font-mono" style="margin-top:1.5rem;display:flex;align-items:center;gap:0.7rem;font-size:1rem;">
+        <span class="blink" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:currentColor;"></span>
+        13 YEARS · ELECTRONICS &amp; MECHATRONICS TEST TECHNICIAN
+      </p>
+      <p style="margin-top:2rem;max-width:34rem;opacity:0.75;font-size:0.95rem;">
+        Every section below is a different instrument on the bench. Scroll to power each one on.
+      </p>
+      <p class="font-mono" style="margin-top:3.5rem;font-size:11px;letter-spacing:0.3em;opacity:0.5;">↓ SCROLL TO CONTINUE</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="panel" id="stats" data-theme="lcd" aria-label="Career snapshot">
+    <span class="label-tag font-mono">READOUT</span>
+    <p class="tag reveal font-mono">PANEL READOUT</p>
+    <div class="stat-grid">
+      <div class="reveal">
+        <div class="stat-value" data-count="13" data-suffix="+">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-value">IPC-A-610</div>
+        <div class="stat-label">Certified</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-value" data-count="6" data-suffix="σ">0</div>
+        <div class="stat-label">Lean Six Sigma — Yellow Belt</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-value">AA</div>
+        <div class="stat-label">Associate Degree</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. PRECISION -->
+  <section class="panel" id="precision" data-theme="scope" aria-labelledby="precision-title">
+    <span class="label-tag font-mono">SCOPE</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 01 / Precision Instrumentation</p>
+      <h2 class="section-title" id="precision-title">Precision Instrumentation &amp; Calibration</h2>
+      <p class="tagline">Where I started my career — reading the signal correctly, every time.</p>
+      <div style="border-radius:6px;border:1px solid;padding:1rem;background:#00000030;max-width:26rem;">
+        <svg width="100%" height="60" viewBox="0 0 360 60" preserveAspectRatio="none" aria-hidden="true">
+          <polyline id="wave1" fill="none" stroke-width="1.6" opacity="0.85" />
+        </svg>
+      </div>
+      <ul class="bullets">
+        <li><span>▸</span><span>DMMs &amp; signal instrumentation</span></li>
+        <li><span>▸</span><span>Torque wrenches, micrometers, calipers</span></li>
+        <li><span>▸</span><span>Traceable calibration workflows</span></li>
+        <li><span>▸</span><span>5S workspace standards</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. ELECTRONICS -->
+  <section class="panel" id="electronics" data-theme="copper" aria-labelledby="electronics-title">
+    <span class="label-tag font-mono">PCB.REV</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 02 / Electronics</p>
+      <h2 class="section-title" id="electronics-title">Electronics &amp; Soldering</h2>
+      <p class="tagline">Component-level work — where the fix actually happens.</p>
+      <svg width="260" height="70" viewBox="0 0 260 70" aria-hidden="true">
+        <path class="trace-path" d="M0 35 H60 L80 15 H140 L160 35 H260" fill="none" stroke-width="3" />
+        <circle cx="60" cy="35" r="4" />
+        <circle cx="140" cy="35" r="4" />
+        <circle cx="200" cy="35" r="4" />
+      </svg>
+      <ul class="bullets">
+        <li><span>▸</span><span>SMT &amp; through-hole soldering</span></li>
+        <li><span>▸</span><span>PCB assembly &amp; rework</span></li>
+        <li><span>▸</span><span>Wiring harness fabrication</span></li>
+        <li><span>▸</span><span>Schematic &amp; PCB layout reading</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. QUALITY -->
+  <section class="panel" id="quality" data-theme="hud" aria-labelledby="quality-title">
+    <span class="label-tag font-mono">QA.CHECK</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 03 / Quality &amp; Process</p>
+      <h2 class="section-title" id="quality-title">Quality &amp; Process Improvement</h2>
+      <p class="tagline">Root-cause discipline. If it shipped broken, I find out why — and make sure it doesn't happen twice.</p>
+      <div class="checklist">
+        <span>✓ INSPECT</span><span>✓ ISOLATE</span><span>✓ DOCUMENT</span><span>✓ RESOLVE</span>
+      </div>
+      <ul class="bullets">
+        <li><span>▸</span><span>RMA troubleshooting &amp; root cause analysis</span></li>
+        <li><span>▸</span><span>Corrective/preventive action documentation</span></li>
+        <li><span>▸</span><span>IPC quality standards adherence</span></li>
+        <li><span>▸</span><span>Time-and-motion studies</span></li>
+        <li><span>▸</span><span>Audit-ready traceability &amp; recordkeeping</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. PROCEDURES -->
+  <section class="panel" id="procedures" data-theme="blueprint" aria-labelledby="procedures-title">
+    <span class="label-tag font-mono">DWG</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 04 / Procedures</p>
+      <h2 class="section-title" id="procedures-title">Procedures &amp; Manufacturing Process</h2>
+      <p class="tagline">Writing the instructions other technicians will trust.</p>
+      <div style="width:100%;max-width:26rem;height:7rem;border-radius:6px;border:1px solid;position:relative;overflow:hidden;background:#04162B;">
+        <svg width="100%" height="100%" viewBox="0 0 300 100" aria-hidden="true">
+          <g stroke-width="1" opacity="0.7">
+            <line x1="10" y1="20" x2="290" y2="20" />
+            <line x1="10" y1="45" x2="200" y2="45" />
+            <line x1="10" y1="70" x2="250" y2="70" />
+            <rect x="10" y="10" width="280" height="80" fill="none" stroke-dasharray="4 3" />
+          </g>
+        </svg>
+      </div>
+      <ul class="bullets">
+        <li><span>▸</span><span>SOP authoring &amp; revision control</span></li>
+        <li><span>▸</span><span>Manufacturing process redesign</span></li>
+        <li><span>▸</span><span>FDA-regulated procedure compliance</span></li>
+        <li><span>▸</span><span>Workflow/throughput optimization</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. SOFTWARE -->
+  <section class="panel" id="software" data-theme="terminal" aria-labelledby="software-title">
+    <span class="label-tag font-mono">SHELL</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 05 / Software</p>
+      <h2 class="section-title" id="software-title">Software &amp; Scripting</h2>
+      <p class="tagline">Automating the boring parts of testing so the data speaks faster.</p>
+      <div class="font-mono" style="border-radius:6px;padding:1rem;background:#000000aa;border:1px solid;font-size:0.9rem;max-width:26rem;">
+        <div style="opacity:0.7;">$ python build_gui.py --module test_stand</div>
+        <div id="shellline">&gt;</div>
+      </div>
+      <ul class="bullets">
+        <li><span>▸</span><span>Python GUI development</span></li>
+        <li><span>▸</span><span>VBA automation &amp; reporting</span></li>
+        <li><span>▸</span><span>SQL &amp; data analysis</span></li>
+        <li><span>▸</span><span>HTML / CSS / JavaScript</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. MECHATRONICS -->
+  <section class="panel" id="mecha" data-theme="servo" aria-labelledby="mecha-title">
+    <span class="label-tag font-mono">SERVO</span>
+    <div class="reveal" style="max-width:48rem;">
+      <p class="tag font-mono">Test 06 / Mechatronics</p>
+      <h2 class="section-title" id="mecha-title">Mechatronics &amp; Automation</h2>
+      <p class="tagline">Building the rigs that build confidence in the product.</p>
+      <svg class="gear" width="70" height="70" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke-width="6">
+          <circle cx="50" cy="50" r="30" />
+          <line x1="50" y1="20" x2="50" y2="8" /><line x1="71" y1="29" x2="80" y2="20" />
+          <line x1="80" y1="50" x2="92" y2="50" /><line x1="71" y1="71" x2="80" y2="80" />
+          <line x1="50" y1="80" x2="50" y2="92" /><line x1="29" y1="71" x2="20" y2="80" />
+          <line x1="20" y1="50" x2="8" y2="50" /><line x1="29" y1="29" x2="20" y2="20" />
+        </g>
+      </svg>
+      <ul class="bullets">
+        <li><span>▸</span><span>Automated test stand development</span></li>
+        <li><span>▸</span><span>PLC programming</span></li>
+        <li><span>▸</span><span>Embedded systems integration</span></li>
+        <li><span>▸</span><span>Control system testing</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="panel" id="timeline" data-theme="scope" aria-label="Work experience timeline">
+    <span class="label-tag font-mono">SCOPE</span>
+    <p class="tag reveal font-mono">SIGNAL LOG / EXPERIENCE</p>
+    <div style="max-width:44rem;" id="timeline-list"></div>
+  </section>
+
+  <!-- CERTS -->
+  <section class="panel" id="certs" data-theme="badge" aria-label="Certifications and education">
+    <span class="label-tag font-mono">CERT</span>
+    <p class="tag reveal font-mono">VERIFIED</p>
+    <div style="display:grid;gap:1.5rem;max-width:44rem;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+      <div class="badge-circle reveal">IPC-A-610 Certified</div>
+      <div class="badge-circle reveal">Lean Six Sigma — Yellow Belt</div>
+      <div class="badge-circle reveal">Google Data Analytics</div>
+    </div>
+    <p class="reveal font-mono" style="margin-top:2.5rem;font-size:0.9rem;opacity:0.7;">Associates in Arts — Saint Petersburg College</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="panel" id="contact" data-theme="handshake" aria-label="Contact information">
+    <span class="label-tag font-mono">LINK</span>
+    <div class="reveal">
+      <p class="tag font-mono" id="handshakeline">&gt;</p>
+      <h2 class="section-title">Let's build something.</h2>
+      <a class="contact-link" href="mailto:Abrigante86@gmail.com">Abrigante86@gmail.com</a>
+      <a class="contact-link" href="tel:+18133706143">+1 813 370 6143</a>
+      <p class="font-mono" style="font-size:0.9rem;opacity:0.6;">Swampscott, MA 01907</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">© <span id="year"></span> Anthony Brigante</footer>
+
+<script>
+(function(){
+  var THEME = {
+    crt:      { bg:"#04070A", accent:"#39FF9C", accent2:"#0FDC7A", text:"#DFFFEE", sub:"#5FAE85" },
+    lcd:      { bg:"#070604", accent:"#FFB020", accent2:"#FF7A18", text:"#FFE9C4", sub:"#B98A45" },
+    hud:      { bg:"#040707", accent:"#39FF9C", accent2:"#20C997", text:"#E4FFF3", sub:"#5AA089" },
+    scope:    { bg:"#03060A", accent:"#3EC1FF", accent2:"#7FE0FF", text:"#DFF3FF", sub:"#5A8AA8" },
+    terminal: { bg:"#020403", accent:"#39FF9C", accent2:"#B6FFCF", text:"#D7FFE6", sub:"#4A9470" },
+    copper:   { bg:"#070402", accent:"#E8873C", accent2:"#F2B25C", text:"#FFE9D4", sub:"#B4834E" },
+    blueprint:{ bg:"#04101E", accent:"#7FC7FF", accent2:"#FFFFFF", text:"#E6F3FF", sub:"#5D8BB3" },
+    servo:    { bg:"#080502", accent:"#FF9A3E", accent2:"#FFC97A", text:"#FFE7CE", sub:"#B0824C" },
+    badge:    { bg:"#0A0704", accent:"#E8C468", accent2:"#FFD98A", text:"#FFF3D6", sub:"#B79A5C" },
+    handshake:{ bg:"#020402", accent:"#39FF9C", accent2:"#3EC1FF", text:"#E4FFF0", sub:"#4A9470" }
+  };
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section.panel'));
+  var navdots = document.getElementById('navdots');
+  var traceEl = document.getElementById('trace');
+  var traceDot = traceEl.querySelector('.dot');
+
+  // build nav dots
+  sections.forEach(function(sec){
+    var d = document.createElement('div');
+    d.className = 'nd';
+    d.dataset.for = sec.id;
+    navdots.appendChild(d);
+  });
+
+  function applyTheme(themeName){
+    var t = THEME[themeName];
+    if(!t) return;
+    document.body.style.background = t.bg;
+    sections.forEach(function(sec){ if(sec.dataset.theme===themeName){} });
+    // color all text/accents via CSS variables scoped globally (single active theme)
+    document.documentElement.style.setProperty('--accent', t.accent);
+    document.documentElement.style.setProperty('--accent2', t.accent2);
+    document.documentElement.style.setProperty('--text', t.text);
+    document.documentElement.style.setProperty('--sub', t.sub);
+    document.body.style.color = t.text;
+    traceDot.style.background = t.accent;
+    traceDot.style.boxShadow = '0 0 12px 3px ' + t.accent;
+    document.querySelectorAll('.label-tag').forEach(function(el){ el.style.color = t.sub; });
+    document.querySelectorAll('.tag').forEach(function(el){ el.style.color = t.accent2; });
+    document.querySelectorAll('.tagline').forEach(function(el){ el.style.color = t.sub; });
+    document.querySelectorAll('h1,h2').forEach(function(el){ el.style.color = t.text; });
+    document.querySelectorAll('ul.bullets li span:first-child').forEach(function(el){ el.style.color = t.accent; });
+    document.querySelectorAll('ul.bullets li span:last-child').forEach(function(el){ el.style.color = t.text; });
+    document.querySelectorAll('.checklist span').forEach(function(el){ el.style.borderColor = t.accent+'55'; el.style.color = t.accent; });
+    document.querySelectorAll('.stat-value').forEach(function(el,i){ el.style.color = i%2===0 ? t.accent : t.accent2; });
+    document.querySelectorAll('.stat-label').forEach(function(el){ el.style.color = t.text; });
+    document.querySelectorAll('.badge-circle').forEach(function(el){ el.style.borderColor = t.accent; el.style.color = t.text; el.style.boxShadow = '0 0 22px -6px '+t.accent; });
+    document.querySelectorAll('.timeline-row').forEach(function(el){ el.style.borderColor = t.accent+'22'; });
+    document.querySelectorAll('.timeline-period').forEach(function(el){ el.style.color = t.sub; });
+    document.querySelectorAll('.timeline-role').forEach(function(el){ el.style.color = t.text; });
+    document.querySelectorAll('.timeline-org').forEach(function(el){ el.style.color = t.sub; });
+    document.querySelectorAll('.contact-link').forEach(function(el){ el.style.color = t.accent; });
+    var wave = document.getElementById('wave1');
+    if(wave) wave.setAttribute('stroke', t.accent);
+    document.querySelectorAll('.trace-path').forEach(function(el){ el.setAttribute('stroke', t.accent); });
+    document.querySelectorAll('#electronics circle').forEach(function(el){ el.setAttribute('fill', t.accent2); });
+    var gear = document.querySelector('.gear g');
+    if(gear) gear.setAttribute('stroke', t.accent);
+    var bp = document.querySelector('#procedures g');
+    if(bp) bp.setAttribute('stroke', t.accent2);
+    document.querySelectorAll('#procedures div[style*="border-radius:6px"]').forEach(function(el){ el.style.borderColor = t.accent2+'55'; });
+    document.querySelectorAll('#precision div[style*="border-radius:6px"]').forEach(function(el){ el.style.borderColor = t.accent+'40'; });
+    document.querySelectorAll('#software div.font-mono').forEach(function(el){ el.style.borderColor = t.accent+'33'; el.style.color = t.accent; });
+  }
+
+  // waveform path
+  (function(){
+    var pts = [];
+    for(var i=0;i<60;i++){
+      var y = 30 + Math.sin(i/2.3)*18 + Math.sin(i/1.4)*4;
+      pts.push((i*6)+","+y);
+    }
+    var wave = document.getElementById('wave1');
+    if(wave) wave.setAttribute('points', pts.join(' '));
+  })();
+
+  // reveal on scroll
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('in');
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+
+  // active section -> theme + nav dots + trace dot position
+  var activeObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && e.intersectionRatio > 0.35){
+        var theme = e.target.dataset.theme;
+        applyTheme(theme);
+        navdots.querySelectorAll('.nd').forEach(function(d){
+          d.classList.toggle('active', d.dataset.for === e.target.id);
+          if(d.dataset.for === e.target.id){
+            d.style.background = THEME[theme].accent;
+            d.style.boxShadow = '0 0 10px 2px '+THEME[theme].accent;
+          } else {
+            d.style.background = 'rgba(255,255,255,0.15)';
+            d.style.boxShadow = 'none';
+          }
+        });
+      }
+    });
+  }, {threshold:[0.35,0.5,0.65]});
+  sections.forEach(function(sec){ activeObserver.observe(sec); });
+
+  // stat counters
+  function animateCount(el){
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+    var start = performance.now(), dur = 1100;
+    function tick(now){
+      var p = Math.min(1, (now-start)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = Math.floor(target*eased) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  var countObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        animateCount(e.target);
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.4});
+  document.querySelectorAll('.stat-value[data-count]').forEach(function(el){ countObserver.observe(el); });
+
+  // typewriter helper
+  function typewrite(el, text, speed, startDelay){
+    var i = 0;
+    setTimeout(function(){
+      var iv = setInterval(function(){
+        i++;
+        el.textContent = text.slice(0,i);
+        if(i>=text.length) clearInterval(iv);
+      }, speed);
+    }, startDelay||0);
+  }
+  typewrite(document.getElementById('bootline'), '> INITIALIZING BENCH SESSION...', 22, 300);
+  typewrite(document.getElementById('shellline'), '> streaming actuator data... OK', 20, 200);
+  typewrite(document.getElementById('handshakeline'), '> HANDSHAKE ESTABLISHED', 26, 200);
+
+  // timeline data (rendered via JS but present in DOM immediately for crawlers via noscript fallback below)
+  var experience = [
+    {role:"Senior Mechatronics Technician", org:"Harmonic Drive LLC", period:"Nov 2025 – Present"},
+    {role:"Engineering Technician", org:"Shadowcaster Marine Lighting", period:"Jun 2023 – Dec 2024"},
+    {role:"Production Lead", org:"Microlumen Medical Tubing", period:"May 2018 – Apr 2023"},
+    {role:"Web Developer", org:"Beachcat Boats LLC", period:"Jan 2015 – Jan 2017"},
+    {role:"CNC Operator", org:"Nephilim Armory Corporation", period:"Jan 2014 – Jan 2015"},
+    {role:"Production Calibration Specialist", org:"Onicon Inc", period:"Jan 2011 – Jan 2013"}
+  ];
+  var list = document.getElementById('timeline-list');
+  experience.forEach(function(r, i){
+    var row = document.createElement('div');
+    row.className = 'timeline-row reveal';
+    row.style.transitionDelay = (i*0.08)+'s';
+    row.innerHTML = '<div class="timeline-period font-mono">'+r.period+'</div>' +
+      '<div><div class="timeline-role">'+r.role+'</div><div class="timeline-org">'+r.org+'</div></div>';
+    list.appendChild(row);
+    revealObserver.observe(row);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // init theme for hero on load
+  applyTheme('crt');
+})();
+</script>
+
+<noscript>
+  <div style="padding:2rem;font-family:sans-serif;background:#04070A;color:#DFFFEE;">
+    <h1>Anthony Brigante — Electronics &amp; Mechatronics Test Technician</h1>
+    <p>13+ years of experience in precision instrumentation &amp; calibration, electronics &amp; soldering,
+    quality &amp; process improvement, manufacturing procedures, software &amp; scripting, and mechatronics &amp; automation.
+    IPC-A-610 certified. Contact: Abrigante86@gmail.com | +1 813 370 6143 | Swampscott, MA 01907.</p>
+  </div>
+</noscript>
+
+</body>
+</html>
